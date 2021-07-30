@@ -697,7 +697,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull --rebase origin master</span><br></pre></td></tr></table></figure>
 
 <p>该命令的意思是把远程库中的更新合并到（pull=fetch+merge）本地库中，–-rebase的作用是取消掉本地库中刚刚的commit，并把他们接到更新后的版本库之中。出现如下图执行pull执行成功后，可以成功执行<code>git push origin master</code>操作</p>
-<h2 id="2-在验证上述问题解决方案是发生错误"><a href="#2-在验证上述问题解决方案是发生错误" class="headerlink" title="2,  在验证上述问题解决方案是发生错误"></a>2,  在验证上述问题解决方案是发生错误</h2><p>![git pull rebase origin master](images/git pull rebase origin master.png)</p>
+<h2 id="2-在验证上述问题解决方案是发生错误"><a href="#2-在验证上述问题解决方案是发生错误" class="headerlink" title="2,  在验证上述问题解决方案是发生错误"></a>2,  在验证上述问题解决方案是发生错误</h2><img src=" /medias/blog/blog_001/git push err.png">
+
 <h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法:"></a>解决办法:</h3><p>问题原因: 提交到版本库中的文件没有没有提交到 分支中,还在暂存区</p>
 <p><strong>解决办法</strong>：使用命令行：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &#x27;xx&#x27; </span><br></pre></td></tr></table></figure>

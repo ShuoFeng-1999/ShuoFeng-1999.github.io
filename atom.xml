@@ -6,7 +6,7 @@
   <link href="https://shuofeng-1999.github.io/atom.xml" rel="self"/>
   
   <link href="https://shuofeng-1999.github.io/"/>
-  <updated>2021-07-31T03:39:37.470Z</updated>
+  <updated>2021-08-03T10:08:59.614Z</updated>
   <id>https://shuofeng-1999.github.io/</id>
   
   <author>
@@ -17,11 +17,61 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>访问表错误</title>
+    <link href="https://shuofeng-1999.github.io/fang-wen-biao-cuo-wu/2021/08/03/"/>
+    <id>https://shuofeng-1999.github.io/fang-wen-biao-cuo-wu/2021/08/03/</id>
+    <published>2021-08-03T08:57:08.206Z</published>
+    <updated>2021-08-03T10:08:59.614Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一-引言&quot;&gt;&lt;a href=&quot;#一-引言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="MySql" scheme="https://shuofeng-1999.github.io/categories/MySql/"/>
+    
+    
+    <category term="mysql" scheme="https://shuofeng-1999.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图书管理系统</title>
+    <link href="https://shuofeng-1999.github.io/tu-shu-guan-li-xi-tong/2021/08/02/"/>
+    <id>https://shuofeng-1999.github.io/tu-shu-guan-li-xi-tong/2021/08/02/</id>
+    <published>2021-08-01T16:00:00.000Z</published>
+    <updated>2021-08-03T10:06:54.215Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一-前言&quot;&gt;&lt;a href=&quot;#一-前言&quot; class=&quot;headerlink&quot; title=&quot;一, 前言:&quot;&gt;&lt;/a&gt;一, 前言:&lt;/h1&gt;&lt;p&gt;随着对 Javaweb</summary>
+        
+      
+    
+    
+    
+    <category term="JavaWeb" scheme="https://shuofeng-1999.github.io/categories/JavaWeb/"/>
+    
+    
+    <category term="JavaWeb 项目" scheme="https://shuofeng-1999.github.io/tags/JavaWeb-%E9%A1%B9%E7%9B%AE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>hexo + github 搭建个人博客教程 及遇到的问题</title>
     <link href="https://shuofeng-1999.github.io/wo-de-di-yi-pian-bo-ke/2021/07/29/"/>
     <id>https://shuofeng-1999.github.io/wo-de-di-yi-pian-bo-ke/2021/07/29/</id>
-    <published>2021-07-29T01:00:31.376Z</published>
-    <updated>2021-07-31T03:39:37.470Z</updated>
+    <published>2021-07-28T16:00:00.000Z</published>
+    <updated>2021-08-02T04:34:31.933Z</updated>
     
     
       

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Medias, 火乐风">
+    <meta name="keywords" content="访问表错误, 火乐风">
     <meta name="description" content="学习笔记">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Medias | 火乐风</title>
+    <title>访问表错误 | 火乐风</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -516,12 +516,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Medias</h1>
+                    <h1 class="description center-align post-title">访问表错误</h1>
                 </div>
             </div>
         </div>
@@ -635,12 +635,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/mysql/">
+                                <span class="chip bg-color">mysql</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/MySql/" class="post-category">
+                                MySql
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -649,28 +662,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-30
+                    2021-08-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-30
+                    2021-08-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    614
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -693,7 +706,84 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="一-引言"><a href="#一-引言" class="headerlink" title="一,引言:"></a>一,引言:</h1><p>今天在做练手项目时,用SQLyog创建数据表时遇到了错误,在SQLyog中该表显示正常创建,但是在cmd命令窗框打开mysql命令行查看表结构或是查询数据都会报错</p>
+<h1 id="二-详解"><a href="#二-详解" class="headerlink" title="二,详解:"></a>二,详解:</h1><h2 id="1-情况详解"><a href="#1-情况详解" class="headerlink" title="1,情况详解:"></a>1,情况详解:</h2><p>SQLyog查询到的表详情:</p>
+<pre class="line-numbers language-none"><code class="language-none">/*列信息*/-----------
+
+Field            Type      Collation        Null    Key     Default  Extra   Privileges                       Comment             
+---------------  --------  ---------------  ------  ------  -------  ------  -------------------------------  --------------------
+ordernum         char(16)  utf8_general_ci  NO      PRI     (NULL)           select,insert,update,references  订单编号        
+code             char(24)  utf8_general_ci  NO              (NULL)           select,insert,update,references  账号              
+typeno           int       (NULL)           NO      MUL     (NULL)           select,insert,update,references  账号类型编号  
+bookname         char(24)  utf8_general_ci  NO              (NULL)           select,insert,update,references  书名              
+bookno           char(24)  utf8_general_ci  NO      MUL     (NULL)           select,insert,update,references  书籍编号        
+lendtiem         date      (NULL)           NO              (NULL)           select,insert,update,references  借书时间        
+repaytime        date      (NULL)           NO              (NULL)           select,insert,update,references  还书时间        
+overdue          int       (NULL)           NO              (NULL)           select,insert,update,references  逾期              
+penalty          int       (NULL)           NO              (NULL)           select,insert,update,references  罚款              
+penaltystatusno  int       (NULL)           NO      MUL     (NULL)           select,insert,update,references  罚款状态编号  
+statusno         int       (NULL)           NO      MUL     (NULL)           select,insert,update,references  状态编号        
+operator         char(24)  utf8_general_ci  NO              (NULL)           select,insert,update,references  操作员           
+
+/*索引信息*/--------------
+
+Table   Non_unique  Key_name  Seq_in_index  Column_name      Collation  Cardinality  Sub_part  Packed  Null    Index_type  Comment  Index_comment  Visible  Expression  
+------  ----------  --------  ------------  ---------------  ---------  -----------  --------  ------  ------  ----------  -------  -------------  -------  ------------
+order            0  PRIMARY              1  ordernum         A                    0    (NULL)  (NULL)          BTREE                               YES      (NULL)      
+order            1  statusid             1  statusno         A                    0    (NULL)  (NULL)          BTREE                               YES      (NULL)      
+order            1  bookno               1  bookno           A                    0    (NULL)  (NULL)          BTREE                               YES      (NULL)      
+order            1  typeno               1  typeno           A                    0    (NULL)  (NULL)          BTREE                               YES      (NULL)      
+order            1  penalty              1  penaltystatusno  A                    0    (NULL)  (NULL)          BTREE                               YES      (NULL)      
+                                                                                                                                                                        
+
+/*DDL 信息*/------------
+
+CREATE TABLE `order` (
+  `ordernum` char(16) NOT NULL COMMENT '订单编号',
+  `code` char(24) NOT NULL COMMENT '账号',
+  `typeno` int NOT NULL COMMENT '账号类型编号',
+  `bookname` char(24) NOT NULL COMMENT '书名',
+  `bookno` char(24) NOT NULL COMMENT '书籍编号',
+  `lendtiem` date NOT NULL COMMENT '借书时间',
+  `repaytime` date NOT NULL COMMENT '还书时间',
+  `overdue` int NOT NULL COMMENT '逾期',
+  `penalty` int NOT NULL COMMENT '罚款',
+  `penaltystatusno` int NOT NULL COMMENT '罚款状态编号',
+  `statusno` int NOT NULL COMMENT '状态编号',
+  `operator` char(24) NOT NULL COMMENT '操作员',
+  PRIMARY KEY (`ordernum`),
+  KEY `statusid` (`statusno`),
+  KEY `bookno` (`bookno`),
+  KEY `typeno` (`typeno`),
+  KEY `penalty` (`penaltystatusno`),
+  CONSTRAINT `bookno` FOREIGN KEY (`bookno`) REFERENCES `bookno` (`bookno`),
+  CONSTRAINT `penalty` FOREIGN KEY (`penaltystatusno`) REFERENCES `penalty` (`penaltystatusno`),
+  CONSTRAINT `statusid` FOREIGN KEY (`statusno`) REFERENCES `status` (`statusno`),
+  CONSTRAINT `typeno` FOREIGN KEY (`typeno`) REFERENCES `type` (`typeno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在cmd查询时遇到的错误:</p>
+<pre class="line-numbers language-none"><code class="language-none">mysql&gt; show tables;
++----------------+
+| Tables_in_test |
++----------------+
+| bookinfo       |
+| bookno         |
+| order          |
+| penalty        |
+| species        |
+| status         |
+| type           |
+| user           |
++----------------+
+8 rows in set (0.00 sec)
+
+mysql&gt; desc order;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order' at line 1
+mysql&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="2-原因"><a href="#2-原因" class="headerlink" title="2,原因:"></a>2,原因:</h2><p>因为order是order by排序的关键字,在查询时会把order当成关键字,初学者要注意mysql关键字的使用.尽量避免使用关键字.</p>
+
                 
             </div>
             <hr/>
@@ -719,7 +809,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ShuoFeng-1999.github.io/Medias/index.html">https://ShuoFeng-1999.github.io/Medias/index.html</a>
+                    <a href="https://ShuoFeng-1999.github.io/fang-wen-biao-cuo-wu/2021/08/03/">https://ShuoFeng-1999.github.io/fang-wen-biao-cuo-wu/2021/08/03/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -756,7 +846,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/mysql/">
+                                    <span class="chip bg-color">mysql</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -984,13 +1078,13 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/Medias/index.html">
+                <a href="/fang-wen-biao-cuo-wu/2021/08/03/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Medias">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="访问表错误">
                         
-                        <span class="card-title">Medias</span>
+                        <span class="card-title">访问表错误</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1001,17 +1095,29 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-03
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            火乐
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySql/" class="post-category">
+                                    MySql
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/mysql/">
+                        <span class="chip bg-color">mysql</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1019,16 +1125,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/Medias/index.html">
+                <a href="/tu-shu-guan-li-xi-tong/2021/08/02/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Medias">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="图书管理系统">
                         
-                        <span class="card-title">Medias</span>
+                        <span class="card-title">图书管理系统</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1039,17 +1145,28 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-02
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            火乐
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaWeb/" class="post-category">
+                                    JavaWeb
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JavaWeb-%E9%A1%B9%E7%9B%AE/">
+                        <span class="chip bg-color">JavaWeb 项目</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

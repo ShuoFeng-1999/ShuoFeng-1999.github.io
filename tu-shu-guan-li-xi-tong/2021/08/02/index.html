@@ -676,7 +676,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.4k
+                    3.5k
                 </div>
                 
 
@@ -765,7 +765,7 @@
 <img src="/medias/JavaWeb/BookManagementSystem/BookE-R.jpg" alt="书籍E-R图">
 
 <p>bookinfo表创建代码:</p>
-<pre class="line-numbers language-none"><code class="language-none">CREATE TABLE `bookinfo` (
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `bookinfo` (
   `id` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT COMMENT 'id',
   `bookname` char(24) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '书名',
   `author` char(24) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '作者',
@@ -784,7 +784,7 @@
 <p>表结构:</p>
 <p>+———–+—————————+——+—–+———+—————-+<br>        | Field     | Type                      | Null | Key | Default | Extra          |<br>        +———–+—————————+——+—–+———+—————-+<br>        | id        | int(10) unsigned zerofill | NO   | PRI | NULL    | auto_increment |<br>        | bookname  | char(24)                   | NO   |     | NULL    |                |<br>        | author    | char(24)                   | NO   |     | NULL    |                |<br>        | speciesno | int                       | NO   | MUL | NULL    |                |<br>        | describe  | varchar(250)              | NO   |     | NULL    |                |<br>        | price     | int                       | NO   |     | NULL    |                |<br>        | place     | char(24)                   | NO   |     | NULL    |                |<br>        | statusno  | int                       | NO   | MUL | NULL    |                |<br>        +———–+—————————+——+—–+———+—————-+</p>
 <p>bookno表创建代码:</p>
-<pre class="line-numbers language-none"><code class="language-none">CREATE TABLE `bookno` (
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `bookno` (
   `bookno` char(24) NOT NULL,
   `statusno` int NOT NULL,
   `id` int(10) unsigned zerofill NOT NULL,
@@ -798,7 +798,7 @@
 <p>表结构:</p>
 <p>+———-+—————————+——+—–+———+——-+<br>        | Field    | Type                      | Null | Key | Default | Extra |<br>        +———-+—————————+——+—–+———+——-+<br>        | bookno   | char(24)                  | NO   | PRI | NULL    |       |<br>        | statusno | int                       | NO   | MUL | NULL    |       |<br>        | id       | int(10) unsigned zerofill | NO   | MUL | NULL    |       |<br>        +———-+—————————+——+—–+———+——-+</p>
 <p>species表创建代码:</p>
-<pre class="line-numbers language-none"><code class="language-none">CREATE TABLE `species` (
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `species` (
   `speciesno` int NOT NULL AUTO_INCREMENT COMMENT '种类编号',
   `species` char(24) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '种类',
   PRIMARY KEY (`speciesno`)
@@ -807,7 +807,7 @@
 <p>表结构:</p>
 <p>+———–+———+——+—–+———+—————-+<br>        | Field     | Type    | Null | Key | Default | Extra          |<br>        +———–+———+——+—–+———+—————-+<br>        | speciesno | int     | NO   | PRI | NULL    | auto_increment |<br>        | species   | char(24) | NO   |     | NULL    |                |<br>        +———–+———+——+—–+———+—————-+</p>
 <p>status表创建代码:</p>
-<pre class="line-numbers language-none"><code class="language-none">CREATE TABLE `status` (
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `status` (
   `statusno` int NOT NULL AUTO_INCREMENT COMMENT '状态编号',
   `status` char(24) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '状态',
   PRIMARY KEY (`statusno`)
@@ -816,11 +816,11 @@
 <p>表结构:</p>
 <p>+———-+———+——+—–+———+—————-+<br>        | Field    | Type    | Null | Key | Default | Extra          |<br>        +———-+———+——+—–+———+—————-+<br>        | statusno | int     | NO   | PRI | NULL    | auto_increment |<br>        | status   | char(24) | NO   |     | NULL    |                |<br>        +———-+———+——+—–+———+—————-+</p>
 <p>表二:租书信息:</p>
-<p>E-R图: 创建三个表orders表和penalty表以及type表</p>
+<p>E-R图: 创建三个表order表和penalty表以及type表</p>
 <img src="/medias/JavaWeb/BookManagementSystem/BorrowingE-R.jpg" alt="租书e-r图">
 
 <p>order表:</p>
-<pre class="line-numbers language-none"><code class="language-none">CREATE TABLE `orders` (
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `orders` (
   `ordernum` char(16) NOT NULL COMMENT '订单编号',
   `code` char(24) NOT NULL COMMENT '账号',
   `typeno` int NOT NULL COMMENT '账号类型编号',
@@ -845,8 +845,9 @@
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>表结构:</p>
+<p>+—————–+———-+——+—–+———+——-+<br>        | Field           | Type     | Null | Key | Default | Extra |<br>        +—————–+———-+——+—–+———+——-+<br>        | ordernum        | char(16) | NO   | PRI | NULL    |       |<br>        | code            | char(24) | NO   |     | NULL    |       |<br>        | typeno          | int      | NO   | MUL | NULL    |       |<br>        | bookname        | char(24) | NO   |     | NULL    |       |<br>        | bookno          | char(24) | NO   | MUL | NULL    |       |<br>        | lendtiem        | date     | NO   |     | NULL    |       |<br>        | repaytime       | date     | NO   |     | NULL    |       |<br>        | overdue         | int      | NO   |     | NULL    |       |<br>        | penalty         | int      | NO   |     | NULL    |       |<br>        | penaltystatusno | int      | NO   | MUL | NULL    |       |<br>        | statusno        | int      | NO   | MUL | NULL    |       |<br>        | operator        | char(24) | NO   |     | NULL    |       |<br>        +—————–+———-+——+—–+———+——-+</p>
 <p>penalty表 :</p>
-<pre class="line-numbers language-none"><code class="language-none">CREATE TABLE `penalty` (
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `penalty` (
   `penaltystatusno` int NOT NULL AUTO_INCREMENT COMMENT '罚款状态编号',
   `penaltystatus` char(24) NOT NULL COMMENT '罚款状态',
   PRIMARY KEY (`penaltystatusno`)
@@ -855,7 +856,7 @@
 <p>表结构:</p>
 <p>+—————–+———-+——+—–+———+—————-+<br>        | Field           | Type     | Null | Key | Default | Extra          |<br>        +—————–+———-+——+—–+———+—————-+<br>        | penaltystatusno | int      | NO   | PRI | NULL    | auto_increment |<br>        | penaltystatus   | char(24) | NO   |     | NULL    |                |<br>        +—————–+———-+——+—–+———+—————-+</p>
 <p>type表:</p>
-<pre class="line-numbers language-none"><code class="language-none">CREATE TABLE `type` (
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `type` (
   `typeno` int NOT NULL AUTO_INCREMENT COMMENT '类型编号',
   `type` char(24) NOT NULL COMMENT '账号类型',
   PRIMARY KEY (`typeno`)

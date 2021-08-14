@@ -569,14 +569,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.2k
+                    4.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    18 分
                 </div>
                 
 
@@ -827,6 +827,56 @@
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="表结构-13"><a href="#表结构-13" class="headerlink" title="表结构:"></a>表结构:</h5><p>+———-+———-+——+—–+———+——-+<br>        | Field    | Type     | Null | Key | Default | Extra |<br>        +———-+———-+——+—–+———+——-+<br>        | code     | char(16) | NO   | PRI | NULL    |       |<br>        | name     | char(16) | NO   |     | NULL    |       |<br>        | phone    | char(16) | NO   |     | NULL    |       |<br>        | balance  | double   | NO   |     | 0       |       |<br>        | statusno | int      | NO   |     | NULL    |       |<br>        | username | char(16) | YES  | MUL | NULL    |       |<br>        +———-+———-+——+—–+———+——-+</p>
+<h1 id="四-程序设计与编码"><a href="#四-程序设计与编码" class="headerlink" title="四,程序设计与编码:"></a>四,程序设计与编码:</h1><h2 id="4-1-系统注册界面"><a href="#4-1-系统注册界面" class="headerlink" title="4.1 ,系统注册界面"></a>4.1 ,系统注册界面</h2><p>系统注册界面分为三个页面用来对应不同的用户,这样可以实现用户与管理者的分流.</p>
+<p>这是进入系统时的身份资格的获取,只有通过了申请的用户才能登录使用系统</p>
+<h3 id="customer用户"><a href="#customer用户" class="headerlink" title="customer用户:"></a>customer用户:</h3><img src="/medias/JavaWeb/BookManagementSystem/CustomerRegist.jpg" alt="customer用户注册界面">
+
+<h4 id="流程图"><a href="#流程图" class="headerlink" title="流程图:"></a>流程图:</h4><img src="/medias/JavaWeb/BookManagementSystem/CustomerRegistFlowChart.jpg" alt="customer用户注册流程图">
+
+<h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码:"></a>核心代码:</h4><pre class="line-numbers language-jsp" data-language="jsp"><code class="language-jsp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="员工-不支持直接访问-需要在具有相应权限的管理员账户页面进入"><a href="#员工-不支持直接访问-需要在具有相应权限的管理员账户页面进入" class="headerlink" title="员工:不支持直接访问,需要在具有相应权限的管理员账户页面进入"></a>员工:不支持直接访问,需要在具有相应权限的管理员账户页面进入</h3><img src="/medias/JavaWeb/BookManagementSystem/EmployeeRegist.jpg" alt="employee用户注册界面">
+
+<h4 id="流程图-1"><a href="#流程图-1" class="headerlink" title="流程图:"></a>流程图:</h4><img src="/medias/JavaWeb/BookManagementSystem/EmployeeRegistFlowChart.jpg" alt="employee用户注册路程图">
+
+<h4 id="核心代码-1"><a href="#核心代码-1" class="headerlink" title="核心代码:"></a>核心代码:</h4><pre class="line-numbers language-jsp" data-language="jsp"><code class="language-jsp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="管理员-不支持非管理员低级用户直接访问-需要在相应权限的管理员账户的页面进入"><a href="#管理员-不支持非管理员低级用户直接访问-需要在相应权限的管理员账户的页面进入" class="headerlink" title="管理员:不支持非管理员低级用户直接访问,需要在相应权限的管理员账户的页面进入"></a>管理员:不支持非管理员低级用户直接访问,需要在相应权限的管理员账户的页面进入</h3><img src="/medias/JavaWeb/BookManagementSystem/AdminRegist.jpg" alt="admin用户注册界面">
+
+<h4 id="流程图-2"><a href="#流程图-2" class="headerlink" title="流程图:"></a>流程图:</h4><img src="/medias/JavaWeb/BookManagementSystem/AdminRegistFlowChart.jpg" alt="admin用户注册流程图">
+
+<h4 id="核心代码-2"><a href="#核心代码-2" class="headerlink" title="核心代码:"></a>核心代码:</h4><pre class="line-numbers language-jsp" data-language="jsp"><code class="language-jsp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h2 id="4-2-系统登录界面"><a href="#4-2-系统登录界面" class="headerlink" title="4.2 ,系统登录界面:"></a>4.2 ,系统登录界面:</h2><p>系统登录界面分为三个页面用来对应不同的用户,这样可以实现用户与管理者的分流.</p>
+<p>这是进入系统时的身份验证,用户首先要申请用户名和密码,才可以进入.</p>
+<h3 id="customer用户-1"><a href="#customer用户-1" class="headerlink" title="customer用户:"></a>customer用户:</h3><img src="/medias/JavaWeb/BookManagementSystem/CustomerLogin.jpg" alt="customer用户登录界面">
+
+<h4 id="流程图-3"><a href="#流程图-3" class="headerlink" title="流程图:"></a>流程图:</h4><img src="/medias/JavaWeb/BookManagementSystem/CustomerLoginFlowChart.jpg" alt="customer用户登录流程图">
+
+<h4 id="核心代码-3"><a href="#核心代码-3" class="headerlink" title="核心代码:"></a>核心代码:</h4><pre class="line-numbers language-jsp" data-language="jsp"><code class="language-jsp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="员工"><a href="#员工" class="headerlink" title="员工:"></a>员工:</h3><img src="/medias/JavaWeb/BookManagementSystem/EmployeeLogin.jpg" alt="employee用户登录界面">
+
+<h4 id="流程图-4"><a href="#流程图-4" class="headerlink" title="流程图:"></a>流程图:</h4><img src="/medias/JavaWeb/BookManagementSystem/EmployeeLoginFlowChart.jpg" alt="employee用户登录流程图">
+
+<h4 id="核心代码-4"><a href="#核心代码-4" class="headerlink" title="核心代码:"></a>核心代码:</h4><pre class="line-numbers language-jsp" data-language="jsp"><code class="language-jsp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="管理员"><a href="#管理员" class="headerlink" title="管理员:"></a>管理员:</h3><img src="/medias/JavaWeb/BookManagementSystem/AdminLogin.jpg" alt="admin用户登录界面">
+
+<h4 id="流程图-5"><a href="#流程图-5" class="headerlink" title="流程图:"></a>流程图:</h4><img src="/medias/JavaWeb/BookManagementSystem/AdminLoginFlowChart.jpg" alt="admin用户登录流程图">
+
+<h4 id="核心代码-5"><a href="#核心代码-5" class="headerlink" title="核心代码:"></a>核心代码:</h4><pre class="line-numbers language-jsp" data-language="jsp"><code class="language-jsp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 
                 
             </div>
@@ -1451,7 +1501,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">7.4k</span>
+                        class="white-color">7.6k</span>
             
             
             

@@ -569,14 +569,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.5k
+                    4.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    17 分
                 </div>
                 
 
@@ -653,12 +653,9 @@
 
 <h3 id="3-4-6-借还图书功能流程图"><a href="#3-4-6-借还图书功能流程图" class="headerlink" title="3.4.6,借还图书功能流程图:"></a>3.4.6,借还图书功能流程图:</h3><img src="/medias/JavaWeb/BookManagementSystem/Borrowed.jpg" alt="借阅还功能流程图">
 
-<h2 id="3-5-数据库设计"><a href="#3-5-数据库设计" class="headerlink" title="3.5,数据库设计:"></a>3.5,数据库设计:</h2><p>表一:书籍信息:</p>
-<p>​    E-R图: 创建四张表,bookinfo,bookno,species和status</p>
-<img src="/medias/JavaWeb/BookManagementSystem/BookE-R.jpg" alt="书籍E-R图">
+<h2 id="3-5-数据库设计"><a href="#3-5-数据库设计" class="headerlink" title="3.5,数据库设计:"></a>3.5,数据库设计:</h2><h3 id="表一-书籍信息"><a href="#表一-书籍信息" class="headerlink" title="表一:书籍信息:"></a>表一:书籍信息:</h3><h4 id="E-R图-创建四张表-bookinfo-bookno-species和status"><a href="#E-R图-创建四张表-bookinfo-bookno-species和status" class="headerlink" title="E-R图: 创建四张表,bookinfo,bookno,species和status"></a>E-R图: 创建四张表,bookinfo,bookno,species和status</h4><img src="/medias/JavaWeb/BookManagementSystem/BookE-R.jpg" alt="书籍E-R图">
 
-<p>bookinfo表创建代码:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `bookinfo` (
+<h5 id="bookinfo表创建代码"><a href="#bookinfo表创建代码" class="headerlink" title="bookinfo表创建代码:"></a>bookinfo表创建代码:</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `bookinfo` (
   `id` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT COMMENT 'id',
   `bookname` char(24) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '书名',
   `author` char(24) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '作者',
@@ -674,10 +671,8 @@
   CONSTRAINT `statusno` FOREIGN KEY (`statusno`) REFERENCES `status` (`statusno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>表结构:</p>
-<p>+———–+—————————+——+—–+———+—————-+<br>        | Field     | Type                      | Null | Key | Default | Extra          |<br>        +———–+—————————+——+—–+———+—————-+<br>        | id        | int(10) unsigned zerofill | NO   | PRI | NULL    | auto_increment |<br>        | bookname  | char(24)                   | NO   |     | NULL    |                |<br>        | author    | char(24)                   | NO   |     | NULL    |                |<br>        | speciesno | int                       | NO   | MUL | NULL    |                |<br>        | describe  | varchar(250)              | NO   |     | NULL    |                |<br>        | price     | int                       | NO   |     | NULL    |                |<br>        | place     | char(24)                   | NO   |     | NULL    |                |<br>        | statusno  | int                       | NO   | MUL | NULL    |                |<br>        +———–+—————————+——+—–+———+—————-+</p>
-<p>bookno表创建代码:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `bookno` (
+<h5 id="表结构"><a href="#表结构" class="headerlink" title="表结构:"></a>表结构:</h5><p>+———–+—————————+——+—–+———+—————-+<br>        | Field     | Type                      | Null | Key | Default | Extra          |<br>        +———–+—————————+——+—–+———+—————-+<br>        | id        | int(10) unsigned zerofill | NO   | PRI | NULL    | auto_increment |<br>        | bookname  | char(24)                   | NO   |     | NULL    |                |<br>        | author    | char(24)                   | NO   |     | NULL    |                |<br>        | speciesno | int                       | NO   | MUL | NULL    |                |<br>        | describe  | varchar(250)              | NO   |     | NULL    |                |<br>        | price     | int                       | NO   |     | NULL    |                |<br>        | place     | char(24)                   | NO   |     | NULL    |                |<br>        | statusno  | int                       | NO   | MUL | NULL    |                |<br>        +———–+—————————+——+—–+———+—————-+</p>
+<h5 id="bookno表创建代码"><a href="#bookno表创建代码" class="headerlink" title="bookno表创建代码:"></a>bookno表创建代码:</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `bookno` (
   `bookno` char(24) NOT NULL,
   `statusno` int NOT NULL,
   `id` int(10) unsigned zerofill NOT NULL,
@@ -688,32 +683,24 @@
   CONSTRAINT `status` FOREIGN KEY (`statusno`) REFERENCES `status` (`statusno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>表结构:</p>
-<p>+———-+—————————+——+—–+———+——-+<br>        | Field    | Type                      | Null | Key | Default | Extra |<br>        +———-+—————————+——+—–+———+——-+<br>        | bookno   | char(24)                  | NO   | PRI | NULL    |       |<br>        | statusno | int                       | NO   | MUL | NULL    |       |<br>        | id       | int(10) unsigned zerofill | NO   | MUL | NULL    |       |<br>        +———-+—————————+——+—–+———+——-+</p>
-<p>species表创建代码:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `species` (
+<h5 id="表结构-1"><a href="#表结构-1" class="headerlink" title="表结构:"></a>表结构:</h5><p>+———-+—————————+——+—–+———+——-+<br>        | Field    | Type                      | Null | Key | Default | Extra |<br>        +———-+—————————+——+—–+———+——-+<br>        | bookno   | char(24)                  | NO   | PRI | NULL    |       |<br>        | statusno | int                       | NO   | MUL | NULL    |       |<br>        | id       | int(10) unsigned zerofill | NO   | MUL | NULL    |       |<br>        +———-+—————————+——+—–+———+——-+</p>
+<h5 id="species表创建代码"><a href="#species表创建代码" class="headerlink" title="species表创建代码:"></a>species表创建代码:</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `species` (
   `speciesno` int NOT NULL AUTO_INCREMENT COMMENT '种类编号',
   `species` char(24) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '种类',
   PRIMARY KEY (`speciesno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>表结构:</p>
-<p>+———–+———+——+—–+———+—————-+<br>        | Field     | Type    | Null | Key | Default | Extra          |<br>        +———–+———+——+—–+———+—————-+<br>        | speciesno | int     | NO   | PRI | NULL    | auto_increment |<br>        | species   | char(24) | NO   |     | NULL    |                |<br>        +———–+———+——+—–+———+—————-+</p>
-<p>status表创建代码:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `status` (
+<h5 id="表结构-2"><a href="#表结构-2" class="headerlink" title="表结构:"></a>表结构:</h5><p>+———–+———+——+—–+———+—————-+<br>        | Field     | Type    | Null | Key | Default | Extra          |<br>        +———–+———+——+—–+———+—————-+<br>        | speciesno | int     | NO   | PRI | NULL    | auto_increment |<br>        | species   | char(24) | NO   |     | NULL    |                |<br>        +———–+———+——+—–+———+—————-+</p>
+<h5 id="status表创建代码"><a href="#status表创建代码" class="headerlink" title="status表创建代码:"></a>status表创建代码:</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `status` (
   `statusno` int NOT NULL AUTO_INCREMENT COMMENT '状态编号',
   `status` char(24) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '状态',
   PRIMARY KEY (`statusno`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>表结构:</p>
-<p>+———-+———+——+—–+———+—————-+<br>        | Field    | Type    | Null | Key | Default | Extra          |<br>        +———-+———+——+—–+———+—————-+<br>        | statusno | int     | NO   | PRI | NULL    | auto_increment |<br>        | status   | char(24) | NO   |     | NULL    |                |<br>        +———-+———+——+—–+———+—————-+</p>
-<p>表二:租书信息:</p>
-<p>E-R图: 创建三个表orders表和penalty表以及type表</p>
-<img src="/medias/JavaWeb/BookManagementSystem/BorrowingE-R.jpg" alt="租书e-r图">
+<h5 id="表结构-3"><a href="#表结构-3" class="headerlink" title="表结构:"></a>表结构:</h5><p>+———-+———+——+—–+———+—————-+<br>        | Field    | Type    | Null | Key | Default | Extra          |<br>        +———-+———+——+—–+———+—————-+<br>        | statusno | int     | NO   | PRI | NULL    | auto_increment |<br>        | status   | char(24) | NO   |     | NULL    |                |<br>        +———-+———+——+—–+———+—————-+</p>
+<h3 id="表二-租书信息"><a href="#表二-租书信息" class="headerlink" title="表二:租书信息:"></a>表二:租书信息:</h3><h4 id="E-R图-创建三个表orders表和penalty表以及type表"><a href="#E-R图-创建三个表orders表和penalty表以及type表" class="headerlink" title="E-R图: 创建三个表orders表和penalty表以及type表"></a>E-R图: 创建三个表orders表和penalty表以及type表</h4><img src="/medias/JavaWeb/BookManagementSystem/BorrowingE-R.jpg" alt="租书e-r图">
 
-<p>orders表:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `orders` (
+<h5 id="orders表"><a href="#orders表" class="headerlink" title="orders表:"></a>orders表:</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `orders` (
   `ordernum` char(16) NOT NULL COMMENT '订单编号',
   `code` char(24) NOT NULL COMMENT '账号',
   `typeno` int NOT NULL COMMENT '账号类型编号',
@@ -737,48 +724,109 @@
   CONSTRAINT `typeno` FOREIGN KEY (`typeno`) REFERENCES `type` (`typeno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>表结构:</p>
-<p>+—————–+———-+——+—–+———+——-+<br>        | Field           | Type     | Null | Key | Default | Extra |<br>        +—————–+———-+——+—–+———+——-+<br>        | ordernum        | char(16) | NO   | PRI | NULL    |       |<br>        | code            | char(24) | NO   |     | NULL    |       |<br>        | typeno          | int      | NO   | MUL | NULL    |       |<br>        | bookname        | char(24) | NO   |     | NULL    |       |<br>        | bookno          | char(24) | NO   | MUL | NULL    |       |<br>        | lendtiem        | date     | NO   |     | NULL    |       |<br>        | repaytime       | date     | NO   |     | NULL    |       |<br>        | overdue         | int      | NO   |     | NULL    |       |<br>        | penalty         | int      | NO   |     | NULL    |       |<br>        | penaltystatusno | int      | NO   | MUL | NULL    |       |<br>        | statusno        | int      | NO   | MUL | NULL    |       |<br>        | operator        | char(24) | NO   |     | NULL    |       |<br>        +—————–+———-+——+—–+———+——-+</p>
-<p>penalty表 :</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `penalty` (
+<h5 id="表结构-4"><a href="#表结构-4" class="headerlink" title="表结构:"></a>表结构:</h5><p>+—————–+———-+——+—–+———+——-+<br>        | Field           | Type     | Null | Key | Default | Extra |<br>        +—————–+———-+——+—–+———+——-+<br>        | ordernum        | char(16) | NO   | PRI | NULL    |       |<br>        | code            | char(24) | NO   |     | NULL    |       |<br>        | typeno          | int      | NO   | MUL | NULL    |       |<br>        | bookname        | char(24) | NO   |     | NULL    |       |<br>        | bookno          | char(24) | NO   | MUL | NULL    |       |<br>        | lendtiem        | date     | NO   |     | NULL    |       |<br>        | repaytime       | date     | NO   |     | NULL    |       |<br>        | overdue         | int      | NO   |     | NULL    |       |<br>        | penalty         | int      | NO   |     | NULL    |       |<br>        | penaltystatusno | int      | NO   | MUL | NULL    |       |<br>        | statusno        | int      | NO   | MUL | NULL    |       |<br>        | operator        | char(24) | NO   |     | NULL    |       |<br>        +—————–+———-+——+—–+———+——-+</p>
+<h5 id="penalty表"><a href="#penalty表" class="headerlink" title="penalty表 :"></a>penalty表 :</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `penalty` (
   `penaltystatusno` int NOT NULL AUTO_INCREMENT COMMENT '罚款状态编号',
   `penaltystatus` char(24) NOT NULL COMMENT '罚款状态',
   PRIMARY KEY (`penaltystatusno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>表结构:</p>
-<p>+—————–+———-+——+—–+———+—————-+<br>        | Field           | Type     | Null | Key | Default | Extra          |<br>        +—————–+———-+——+—–+———+—————-+<br>        | penaltystatusno | int      | NO   | PRI | NULL    | auto_increment |<br>        | penaltystatus   | char(24) | NO   |     | NULL    |                |<br>        +—————–+———-+——+—–+———+—————-+</p>
-<p>type表:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `type` (
+<h5 id="表结构-5"><a href="#表结构-5" class="headerlink" title="表结构:"></a>表结构:</h5><p>+—————–+———-+——+—–+———+—————-+<br>        | Field           | Type     | Null | Key | Default | Extra          |<br>        +—————–+———-+——+—–+———+—————-+<br>        | penaltystatusno | int      | NO   | PRI | NULL    | auto_increment |<br>        | penaltystatus   | char(24) | NO   |     | NULL    |                |<br>        +—————–+———-+——+—–+———+—————-+</p>
+<h5 id="type表"><a href="#type表" class="headerlink" title="type表:"></a>type表:</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `type` (
   `typeno` int NOT NULL AUTO_INCREMENT COMMENT '类型编号',
   `type` char(24) NOT NULL COMMENT '账号类型',
   PRIMARY KEY (`typeno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>表结构:</p>
-<p>+——–+———-+——+—–+———+—————-+<br>        | Field  | Type     | Null | Key | Default | Extra          |<br>        +——–+———-+——+—–+———+—————-+<br>        | typeno | int      | NO   | PRI | NULL    | auto_increment |<br>        | type   | char(24) | NO   |     | NULL    |                |<br>        +——–+———-+——+—–+———+—————-+</p>
-<p>表三:工作人员表:</p>
-<p>E-R图: 创建三个表employee表,department表和post表</p>
-<img src="/medias/JavaWeb/BookManagementSystem/Employee.jpg" alt="员工E-R图">
+<h5 id="表结构-6"><a href="#表结构-6" class="headerlink" title="表结构:"></a>表结构:</h5><p>+——–+———-+——+—–+———+—————-+<br>        | Field  | Type     | Null | Key | Default | Extra          |<br>        +——–+———-+——+—–+———+—————-+<br>        | typeno | int      | NO   | PRI | NULL    | auto_increment |<br>        | type   | char(24) | NO   |     | NULL    |                |<br>        +——–+———-+——+—–+———+—————-+</p>
+<h3 id="表三-工作人员表"><a href="#表三-工作人员表" class="headerlink" title="表三:工作人员表:"></a>表三:工作人员表:</h3><h4 id="E-R图-创建三个表employee表-department表和post表"><a href="#E-R图-创建三个表employee表-department表和post表" class="headerlink" title="E-R图: 创建三个表employee表,department表和post表"></a>E-R图: 创建三个表employee表,department表和post表</h4><img src="/medias/JavaWeb/BookManagementSystem/Employee.jpg" alt="员工E-R图">
 
-<p>employee表:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="employee表"><a href="#employee表" class="headerlink" title="employee表:"></a>employee表:</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `employee` (
+  `no` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT COMMENT '员工编号',
+  `name` char(16) NOT NULL COMMENT '姓名',
+  `sex` char(4) NOT NULL COMMENT '性别',
+  `age` int NOT NULL COMMENT '年龄',
+  `postno` int NOT NULL COMMENT '职位编号',
+  `departmentno` int NOT NULL COMMENT '部门编号',
+  `entrytime` date NOT NULL COMMENT '入职时间',
+  `quittime` date DEFAULT NULL COMMENT '离职时间',
+  PRIMARY KEY (`no`),
+  KEY `department` (`departmentno`),
+  KEY `post` (`postno`),
+  CONSTRAINT `department` FOREIGN KEY (`departmentno`) REFERENCES `department` (`departmentno`),
+  CONSTRAINT `post` FOREIGN KEY (`postno`) REFERENCES `post` (`postno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>表结构:</p>
-<p>department表:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="表结构-7"><a href="#表结构-7" class="headerlink" title="表结构:"></a>表结构:</h5><p>+————–+—————————+——+—–+———+—————-+<br>        | Field        | Type                      | Null | Key | Default | Extra          |<br>        +————–+—————————+——+—–+———+—————-+<br>        | no           | int(10) unsigned zerofill | NO   | PRI | NULL    | auto_increment |<br>        | name         | char(16)                  | NO   |     | NULL    |                |<br>        | sex          | char(4)                   | NO   |     | NULL    |                |<br>        | age          | int                       | NO   |     | NULL    |                |<br>        | postno       | int                       | NO   | MUL | NULL    |                |<br>        | departmentno | int                       | NO   | MUL | NULL    |                |<br>        | entrytime    | date                      | NO   |     | NULL    |                |<br>        | quittime     | date                      | YES  |     | NULL    |                |<br>        +————–+—————————+——+—–+———+—————-+</p>
+<h5 id="department表"><a href="#department表" class="headerlink" title="department表:"></a>department表:</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `department` (
+  `departmentno` int NOT NULL AUTO_INCREMENT COMMENT '部门编号',
+  `department` char(24) NOT NULL COMMENT '部门',
+  `postno` int NOT NULL COMMENT '职位编号',
+  PRIMARY KEY (`departmentno`),
+  KEY `postid` (`postno`),
+  CONSTRAINT `postid` FOREIGN KEY (`postno`) REFERENCES `post` (`postno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>表结构:</p>
-<p>post表:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="表结构-8"><a href="#表结构-8" class="headerlink" title="表结构:"></a>表结构:</h5><p>+————–+———-+——+—–+———+—————-+<br>        | Field        | Type     | Null | Key | Default | Extra          |<br>        +————–+———-+——+—–+———+—————-+<br>        | departmentno | int      | NO   | PRI | NULL    | auto_increment |<br>        | department   | char(24) | NO   |     | NULL    |                |<br>        | postno       | int      | NO   | MUL | NULL    |                |<br>        +————–+———-+——+—–+———+—————-+</p>
+<h5 id="post表"><a href="#post表" class="headerlink" title="post表:"></a>post表:</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `post` (
+  `postno` int NOT NULL AUTO_INCREMENT COMMENT '部门编号',
+  `post` char(24) NOT NULL COMMENT '职位',
+  PRIMARY KEY (`postno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>表结构:</p>
-<p>表四:管理员表:</p>
-<img src="/medias/JavaWeb/BookManagementSystem/Admin.jpg" alt="管理员E-R图">
+<h5 id="表结构-9"><a href="#表结构-9" class="headerlink" title="表结构:"></a>表结构:</h5><p>+——–+———-+——+—–+———+—————-+<br>        | Field  | Type     | Null | Key | Default | Extra          |<br>        +——–+———-+——+—–+———+—————-+<br>        | postno | int      | NO   | PRI | NULL    | auto_increment |<br>        | post   | char(24) | NO   |     | NULL    |                |<br>        +——–+———-+——+—–+———+—————-+</p>
+<h3 id="表四-管理员表"><a href="#表四-管理员表" class="headerlink" title="表四:管理员表:"></a>表四:管理员表:</h3><h4 id="E-R图-创建两张表operate表和admin表"><a href="#E-R图-创建两张表operate表和admin表" class="headerlink" title="E-R图: 创建两张表operate表和admin表"></a>E-R图: 创建两张表operate表和admin表</h4><img src="/medias/JavaWeb/BookManagementSystem/Admin.jpg" alt="管理员E-R图">
 
-<p>表五:用户表</p>
-<img src="/medias/JavaWeb/BookManagementSystem/Customer.jpg" alt="用户E-R图">
+<h5 id="admin表"><a href="#admin表" class="headerlink" title="admin表:"></a>admin表:</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `admin` (
+  `username` char(16) NOT NULL COMMENT '用户名',
+  `password` char(16) NOT NULL COMMENT '密码',
+  `grade` int NOT NULL COMMENT '等级',
+  `logintime` datetime NOT NULL COMMENT '登录时间',
+  `operateno` bigint NOT NULL COMMENT '操作记录编号',
+  PRIMARY KEY (`username`),
+  KEY `operate` (`operateno`),
+  CONSTRAINT `operate` FOREIGN KEY (`operateno`) REFERENCES `operate` (`operateno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h5 id="表结构-10"><a href="#表结构-10" class="headerlink" title="表结构:"></a>表结构:</h5><p>+———–+———-+——+—–+———+——-+<br>        | Field     | Type     | Null | Key | Default | Extra |<br>        +———–+———-+——+—–+———+——-+<br>        | username  | char(16) | NO   | PRI | NULL    |       |<br>        | password  | char(16) | NO   |     | NULL    |       |<br>        | grade     | int      | NO   |     | NULL    |       |<br>        | logintime | datetime | NO   |     | NULL    |       |<br>        | operateno | bigint   | NO   | MUL | NULL    |       |<br>        +———–+———-+——+—–+———+——-+</p>
+<h5 id="operate表"><a href="#operate表" class="headerlink" title="operate表:"></a>operate表:</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `operate` (
+  `operateno` bigint NOT NULL COMMENT '操作记录编号',
+  `operate` char(24) NOT NULL COMMENT '操作',
+  `operatetime` datetime NOT NULL COMMENT '操作时间',
+  PRIMARY KEY (`operateno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="表结构-11"><a href="#表结构-11" class="headerlink" title="表结构:"></a>表结构:</h5><p>+————-+———-+——+—–+———+——-+<br>        | Field       | Type     | Null | Key | Default | Extra |<br>        +————-+———-+——+—–+———+——-+<br>        | operateno   | bigint   | NO   | PRI | NULL    |       |<br>        | operate     | char(24) | NO   |     | NULL    |       |<br>        | operatetime | datetime | NO   |     | NULL    |       |<br>        +————-+———-+——+—–+———+——-+</p>
+<h3 id="表五-用户表"><a href="#表五-用户表" class="headerlink" title="表五:用户表"></a>表五:用户表</h3><h4 id="E-R图-创建两张表bookcart和account表"><a href="#E-R图-创建两张表bookcart和account表" class="headerlink" title="E-R图: 创建两张表bookcart和account表"></a>E-R图: 创建两张表bookcart和account表</h4><img src="/medias/JavaWeb/BookManagementSystem/Customer.jpg" alt="用户E-R图">
+
+<h5 id="account表"><a href="#account表" class="headerlink" title="account表:"></a>account表:</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `account` (
+  `username` char(16) NOT NULL COMMENT '用户名',
+  `password` char(16) NOT NULL COMMENT '密码',
+  `age` int NOT NULL COMMENT '年龄',
+  `sex` char(4) NOT NULL COMMENT '性别',
+  `phone` char(11) NOT NULL COMMENT '电话',
+  `balance` double NOT NULL DEFAULT '0' COMMENT '余额',
+  `statusno` int NOT NULL COMMENT '状态',
+  `code` char(16) NOT NULL COMMENT '卡号',
+  PRIMARY KEY (`username`),
+  KEY `code` (`code`),
+  CONSTRAINT `code` FOREIGN KEY (`code`) REFERENCES `bookcart` (`code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="表结构-12"><a href="#表结构-12" class="headerlink" title="表结构:"></a>表结构:</h5><p>+———-+———-+——+—–+———+——-+<br>        | Field    | Type     | Null | Key | Default | Extra |<br>        +———-+———-+——+—–+———+——-+<br>        | username | char(16) | NO   | PRI | NULL    |       |<br>        | password | char(16) | NO   |     | NULL    |       |<br>        | age      | int      | NO   |     | NULL    |       |<br>        | sex      | char(4)  | NO   |     | NULL    |       |<br>        | phone    | char(11) | NO   |     | NULL    |       |<br>        | balance  | double   | NO   |     | 0       |       |<br>        | statusno | int      | NO   |     | NULL    |       |<br>        | code     | char(16) | NO   | MUL | NULL    |       |<br>        +———-+———-+——+—–+———+——-+</p>
+<h5 id="bookcart表"><a href="#bookcart表" class="headerlink" title="bookcart表:"></a>bookcart表:</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE TABLE `bookcart` (
+  `code` char(16) NOT NULL COMMENT '卡号',
+  `name` char(16) NOT NULL COMMENT '姓名',
+  `phone` char(16) NOT NULL COMMENT '电话',
+  `balance` double NOT NULL DEFAULT '0' COMMENT '余额',
+  `statusno` int NOT NULL COMMENT '状态',
+  `username` char(16) DEFAULT NULL COMMENT '用户名',
+  PRIMARY KEY (`code`),
+  KEY `username` (`username`),
+  CONSTRAINT `username` FOREIGN KEY (`username`) REFERENCES `account` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="表结构-13"><a href="#表结构-13" class="headerlink" title="表结构:"></a>表结构:</h5><p>+———-+———-+——+—–+———+——-+<br>        | Field    | Type     | Null | Key | Default | Extra |<br>        +———-+———-+——+—–+———+——-+<br>        | code     | char(16) | NO   | PRI | NULL    |       |<br>        | name     | char(16) | NO   |     | NULL    |       |<br>        | phone    | char(16) | NO   |     | NULL    |       |<br>        | balance  | double   | NO   |     | 0       |       |<br>        | statusno | int      | NO   |     | NULL    |       |<br>        | username | char(16) | YES  | MUL | NULL    |       |<br>        +———-+———-+——+—–+———+——-+</p>
 
                 
             </div>
@@ -1403,7 +1451,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">6.6k</span>
+                        class="white-color">7.4k</span>
             
             
             
